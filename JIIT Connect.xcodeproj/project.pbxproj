@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */; };
-		83CE4CC31DEB01DB0016DAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC21DEB01DB0016DAA7 /* ViewController.swift */; };
+		83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */; };
 		83CE4CC61DEB01DB0016DAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */; };
 		83CE4CC81DEB01DB0016DAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83CE4CC71DEB01DB0016DAA7 /* Assets.xcassets */; };
 		83CE4CCB1DEB01DB0016DAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CE4CC91DEB01DB0016DAA7 /* LaunchScreen.storyboard */; };
+		83CE4CD31DEB03620016DAA7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CD21DEB03620016DAA7 /* Extensions.swift */; };
+		83CE4CD51DEB07E10016DAA7 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CD41DEB07E10016DAA7 /* MenuBar.swift */; };
+		83CE4CD71DEB0B970016DAA7 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */; };
+		83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */; };
+		83CE4CDB1DEB12440016DAA7 /* BaseDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */; };
+		83CE4CDD1DEB12AB0016DAA7 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		83CE4CBD1DEB01DA0016DAA7 /* JIIT Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JIIT Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		83CE4CC21DEB01DB0016DAA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
 		83CE4CC51DEB01DB0016DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		83CE4CC71DEB01DB0016DAA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83CE4CCA1DEB01DB0016DAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83CE4CCC1DEB01DB0016DAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83CE4CD21DEB03620016DAA7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		83CE4CD41DEB07E10016DAA7 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDayCell.swift; sourceTree = "<group>"; };
+		83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +66,14 @@
 		83CE4CBF1DEB01DA0016DAA7 /* JIIT Connect */ = {
 			isa = PBXGroup;
 			children = (
+				83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */,
+				83CE4CD21DEB03620016DAA7 /* Extensions.swift */,
 				83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */,
-				83CE4CC21DEB01DB0016DAA7 /* ViewController.swift */,
+				83CE4CD41DEB07E10016DAA7 /* MenuBar.swift */,
+				83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */,
+				83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */,
+				83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */,
+				83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */,
 				83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */,
 				83CE4CC71DEB01DB0016DAA7 /* Assets.xcassets */,
 				83CE4CC91DEB01DB0016DAA7 /* LaunchScreen.storyboard */,
@@ -137,7 +155,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83CE4CC31DEB01DB0016DAA7 /* ViewController.swift in Sources */,
+				83CE4CDB1DEB12440016DAA7 /* BaseDayCell.swift in Sources */,
+				83CE4CDD1DEB12AB0016DAA7 /* ClassCell.swift in Sources */,
+				83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */,
+				83CE4CD31DEB03620016DAA7 /* Extensions.swift in Sources */,
+				83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */,
+				83CE4CD51DEB07E10016DAA7 /* MenuBar.swift in Sources */,
+				83CE4CD71DEB0B970016DAA7 /* BaseCell.swift in Sources */,
 				83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,7 +286,7 @@
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sanchitgarg.JIIT-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanchitgarg.jiitconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -275,7 +299,7 @@
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.sanchitgarg.JIIT-Connect";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sanchitgarg.jiitconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
