@@ -19,17 +19,35 @@ class BaseDayCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegat
         return cv
     }()
     
-//    var videos: [Video]?
-//    
+    var classArray: [Class]?
+    var schedule: Schedule? {
+        didSet{
+            getSchedule()
+        }
+    }
+    
+    func getSchedule() {
+        
+    }
+
     let cellId = "cellId"
-//
+
 //    func fetchVideos() {
-//        ApiService.sharedInstance.fetchVideos { (videos: [Video]) in
-//            
-//            self.videos = videos
+//        ApiService.sharedInstance.fetchTimeTable(urlString: "timetable.json", completionHandler: { result in
+//            guard result.error == nil else {
+//                // got an error in getting the data, need to handle it
+//                print("error calling POST on /todos/")
+//                print(result.error!)
+//                return
+//            }
+//            guard let schedule = result.value else {
+//                print("error calling POST on /todos/: result is nil")
+//                return
+//            }
+//            // success!
+//            self.classArray = schedule.monday
 //            self.collectionView.reloadData()
-//            
-//        }
+//        })
 //    }
     
     override func setupViews() {
@@ -44,13 +62,13 @@ class BaseDayCell: BaseCell, UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return classArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath as IndexPath) as! ClassCell
         
-//        cell.video = videos?[indexPath.item]
+        cell.classObject = classArray?[indexPath.item]
         
         return cell
     }

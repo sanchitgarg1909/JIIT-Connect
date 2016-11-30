@@ -11,17 +11,20 @@ import UIKit
 class TimeTableController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
     let numberOfDays = 6
-    let mondayCellId = "monday"
-    let tuesdayCellId = "tuesday"
-    let wednesdayCellId = "wednesday"
-    let thursdayCellId = "thursday"
-    let fridayCellId = "friday"
-    let saturdayCellId = "saturday"
+    let mondayCellId = Days.Monday.rawValue
+    let tuesdayCellId = Days.Tuesday.rawValue
+    let wednesdayCellId = Days.Wednesday.rawValue
+    let thursdayCellId = Days.Thursday.rawValue
+    let fridayCellId = Days.Friday.rawValue
+    let saturdayCellId = Days.Saturday.rawValue
     let titles = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    var schedule: Schedule? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        
+
         //        navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
         
@@ -31,9 +34,33 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
         
+        fetchSchedule()
         setupCollectionView()
         setUpMenuBar()
 //        setUpNavBarButtons()
+        
+    }
+    
+    func handleLogout() {
+        present(, animated: true, completion: nil)
+    }
+    
+    func fetchSchedule() {
+        ApiService.sharedInstance.fetchTimeTable(urlString: "timetable.json", completionHandler: { result in
+            guard result.error == nil else {
+                // got an error in getting the data, need to handle it
+                print("network error")
+                print(result.error!)
+                return
+            }
+            guard let schedule = result.value else {
+                print("error in json response")
+                return
+            }
+            // success!
+            self.schedule = schedule
+            self.collectionView?.reloadData()
+        })
     }
     
     func setupCollectionView() {
@@ -44,17 +71,18 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         
         collectionView?.backgroundColor = UIColor.white
         
-        collectionView?.register(BaseDayCell.self, forCellWithReuseIdentifier: mondayCellId)
-//        collectionView?.register(TuesdayCell.self, forCellWithReuseIdentifier: tuesdayCellId)
-//        collectionView?.register(WednesdayCell.self, forCellWithReuseIdentifier: wednesdayCellId)
-//        collectionView?.register(WednesdayCell.self, forCellWithReuseIdentifier: thursdayCellId)
-//        collectionView?.register(WednesdayCell.self, forCellWithReuseIdentifier: fridayCellId)
-//        collectionView?.register(WednesdayCell.self, forCellWithReuseIdentifier: saturdayCellId)
+        collectionView?.register(MondayCell.self, forCellWithReuseIdentifier: mondayCellId)
+        collectionView?.register(TuesdayCell.self, forCellWithReuseIdentifier: tuesdayCellId)
+        collectionView?.register(WednesdayCell.self, forCellWithReuseIdentifier: wednesdayCellId)
+        collectionView?.register(ThursdayCell.self, forCellWithReuseIdentifier: thursdayCellId)
+        collectionView?.register(FridayCell.self, forCellWithReuseIdentifier: fridayCellId)
+        collectionView?.register(SaturdayCell.self, forCellWithReuseIdentifier: saturdayCellId)
         
         collectionView?.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
         collectionView?.scrollIndicatorInsets = UIEdgeInsetsMake(50, 0, 0, 0)
         
         collectionView?.isPagingEnabled = true
+        
     }
     
     lazy var menuBar: MenuBar = {
@@ -118,43 +146,32 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let identifier: String
-//        if indexPath.item == 0 {
-//            identifier = trendingCellId
-//        } else if indexPath.item == 1 {
-//            identifier = subscriptionCellId
-//        } else if indexPath.item == 2 {
-//            identifier = subscriptionCellId
-//        } else if indexPath.item == 3 {
-//            identifier = subscriptionCellId
-//        } else if indexPath.item == 4 {
-//            identifier = subscriptionCellId
-//        } else if indexPath.item == 5 {
-//            identifier = subscriptionCellId
-//        } else if indexPath.item == 6 {
-//            identifier = subscriptionCellId
-//        }
-//        switch indexPath.item {
-//        case 0:
-//            
-//        case 1:
-//            
-//        case 2:
-//            
-//        case 3:
-//            
-//        case 4:
-//            
-//        case 5:
-//            
-//        case 6:
-//            
-//        default:
-//            
-//        }
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mondayCellId, for: indexPath)
-        
+        let identifier: String
+        switch indexPath.item {
+        case 0:
+            identifier = mondayCellId
+            break
+        case 1:
+            identifier = tuesdayCellId
+            break
+        case 2:
+            identifier = wednesdayCellId
+            break
+        case 3:
+            identifier = thursdayCellId
+            break
+        case 4:
+            identifier = fridayCellId
+            break
+        case 5:
+            identifier = saturdayCellId
+            break
+        default:
+            identifier = mondayCellId
+            break
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! BaseDayCell
+        cell.schedule = self.schedule
         return cell
     }
     

@@ -10,14 +10,34 @@ import UIKit
 
 class ClassCell: BaseCell {
     
-//    var video: Video? {
-//        didSet {
-//            titleLabel.text = video?.title
-//            
+    var classObject: Class? {
+        didSet {
+            subjectLabel.text = classObject?.course_name
+            roomLabel.text = classObject?.venue
+            timeLabel.text = classObject?.time
+            if let type = classObject?.type {
+                let name: String?
+                switch type {
+                case "Lecture":
+                    name = "lecture"
+                    break
+                case "Tutorial":
+                    name = "tutorial"
+                    break
+                case "Practical":
+                    name = "practical"
+                    break
+                default:
+                    name = "lecture"
+                    break
+                }
+                imageView.image = UIImage(named: name!)
+            }
+            
 //            setupThumbnailImage()
 //            
 //            setupProfileImage()
-//            
+            
 //            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
 //                
 //                let numberFormatter = NumberFormatter()
@@ -26,8 +46,8 @@ class ClassCell: BaseCell {
 //                let subtitleText = "\(channelName) • \(numberFormatter.string(from: numberOfViews)!) • 2 years ago "
 //                subtitleTextView.text = subtitleText
 //            }
-//            
-//            //measure title text
+            
+            //measure title text
 //            if let title = video?.title {
 //                let size = CGSize(width: frame.width - 16 - 44 - 8 - 16,height: 1000)
 //                let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
@@ -39,10 +59,10 @@ class ClassCell: BaseCell {
 //                    titleLabelHeightConstraint?.constant = 20
 //                }
 //            }
-//            
-//            
-//        }
-//    }
+            
+            
+        }
+    }
     
 //    func setupProfileImage() {
 //        if let profileImageUrl = video?.channel?.profileImageName {
@@ -60,7 +80,6 @@ class ClassCell: BaseCell {
     
     let imageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "taylor_swift_profile_picture")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv

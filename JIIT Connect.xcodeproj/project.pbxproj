@@ -18,9 +18,24 @@
 		83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */; };
 		83CE4CDB1DEB12440016DAA7 /* BaseDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */; };
 		83CE4CDD1DEB12AB0016DAA7 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */; };
+		83FB7A5C1DECB1DE004C7CE2 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A5B1DECB1DE004C7CE2 /* Class.swift */; };
+		83FB7A5E1DECB45B004C7CE2 /* API Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A5D1DECB45B004C7CE2 /* API Service.swift */; };
+		83FB7A601DECBB9C004C7CE2 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */; };
+		83FB7A621DEDF496004C7CE2 /* MondayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A611DEDF496004C7CE2 /* MondayCell.swift */; };
+		83FB7A641DEDF50F004C7CE2 /* TuesdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A631DEDF50F004C7CE2 /* TuesdayCell.swift */; };
+		83FB7A661DEDF52C004C7CE2 /* WednesdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A651DEDF52C004C7CE2 /* WednesdayCell.swift */; };
+		83FB7A681DEDF535004C7CE2 /* ThursdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A671DEDF535004C7CE2 /* ThursdayCell.swift */; };
+		83FB7A6A1DEDF541004C7CE2 /* FridayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A691DEDF541004C7CE2 /* FridayCell.swift */; };
+		83FB7A6C1DEDF558004C7CE2 /* SaturdayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A6B1DEDF558004C7CE2 /* SaturdayCell.swift */; };
+		83FB7A6E1DEEEAA7004C7CE2 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A6D1DEEEAA7004C7CE2 /* Enums.swift */; };
+		83FB7A701DEF543E004C7CE2 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FB7A6F1DEF543D004C7CE2 /* LoginController.swift */; };
+		F28B16D20080F48A7128A7E7 /* Pods_JIIT_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6228C782F631D072C9002316 /* Pods_JIIT_Connect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F85329C4FEC3943C167F54E /* Pods-JIIT Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		6228C782F631D072C9002316 /* Pods_JIIT_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JIIT_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7623778DDF16F3EC6080B248 /* Pods-JIIT Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.release.xcconfig"; sourceTree = "<group>"; };
 		83CE4CBD1DEB01DA0016DAA7 /* JIIT Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JIIT Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
@@ -34,6 +49,17 @@
 		83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDayCell.swift; sourceTree = "<group>"; };
 		83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCell.swift; sourceTree = "<group>"; };
+		83FB7A5B1DECB1DE004C7CE2 /* Class.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		83FB7A5D1DECB45B004C7CE2 /* API Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API Service.swift"; sourceTree = "<group>"; };
+		83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		83FB7A611DEDF496004C7CE2 /* MondayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MondayCell.swift; sourceTree = "<group>"; };
+		83FB7A631DEDF50F004C7CE2 /* TuesdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuesdayCell.swift; sourceTree = "<group>"; };
+		83FB7A651DEDF52C004C7CE2 /* WednesdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WednesdayCell.swift; sourceTree = "<group>"; };
+		83FB7A671DEDF535004C7CE2 /* ThursdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThursdayCell.swift; sourceTree = "<group>"; };
+		83FB7A691DEDF541004C7CE2 /* FridayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FridayCell.swift; sourceTree = "<group>"; };
+		83FB7A6B1DEDF558004C7CE2 /* SaturdayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaturdayCell.swift; sourceTree = "<group>"; };
+		83FB7A6D1DEEEAA7004C7CE2 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		83FB7A6F1DEF543D004C7CE2 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F28B16D20080F48A7128A7E7 /* Pods_JIIT_Connect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +79,8 @@
 			children = (
 				83CE4CBF1DEB01DA0016DAA7 /* JIIT Connect */,
 				83CE4CBE1DEB01DA0016DAA7 /* Products */,
+				FE8E6C23B72AE866C99A9CA5 /* Pods */,
+				F55D3DE1E734442346426CA7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +106,37 @@
 				83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */,
 				83CE4CC71DEB01DB0016DAA7 /* Assets.xcassets */,
 				83CE4CC91DEB01DB0016DAA7 /* LaunchScreen.storyboard */,
+				83FB7A611DEDF496004C7CE2 /* MondayCell.swift */,
+				83FB7A631DEDF50F004C7CE2 /* TuesdayCell.swift */,
+				83FB7A651DEDF52C004C7CE2 /* WednesdayCell.swift */,
+				83FB7A671DEDF535004C7CE2 /* ThursdayCell.swift */,
+				83FB7A691DEDF541004C7CE2 /* FridayCell.swift */,
+				83FB7A6B1DEDF558004C7CE2 /* SaturdayCell.swift */,
+				83FB7A5B1DECB1DE004C7CE2 /* Class.swift */,
 				83CE4CCC1DEB01DB0016DAA7 /* Info.plist */,
+				83FB7A5D1DECB45B004C7CE2 /* API Service.swift */,
+				83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */,
+				83FB7A6D1DEEEAA7004C7CE2 /* Enums.swift */,
+				83FB7A6F1DEF543D004C7CE2 /* LoginController.swift */,
 			);
 			path = "JIIT Connect";
+			sourceTree = "<group>";
+		};
+		F55D3DE1E734442346426CA7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6228C782F631D072C9002316 /* Pods_JIIT_Connect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FE8E6C23B72AE866C99A9CA5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F85329C4FEC3943C167F54E /* Pods-JIIT Connect.debug.xcconfig */,
+				7623778DDF16F3EC6080B248 /* Pods-JIIT Connect.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -89,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 83CE4CCF1DEB01DB0016DAA7 /* Build configuration list for PBXNativeTarget "JIIT Connect" */;
 			buildPhases = (
+				0DE2A35A806471A0AC02F44E /* [CP] Check Pods Manifest.lock */,
 				83CE4CB91DEB01DA0016DAA7 /* Sources */,
 				83CE4CBA1DEB01DA0016DAA7 /* Frameworks */,
 				83CE4CBB1DEB01DA0016DAA7 /* Resources */,
+				77AAD624A7F1BB372E48EBA3 /* [CP] Embed Pods Frameworks */,
+				9E44349A2CD8E826EDC43C99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -150,19 +210,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0DE2A35A806471A0AC02F44E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		77AAD624A7F1BB372E48EBA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E44349A2CD8E826EDC43C99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		83CE4CB91DEB01DA0016DAA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FB7A701DEF543E004C7CE2 /* LoginController.swift in Sources */,
 				83CE4CDB1DEB12440016DAA7 /* BaseDayCell.swift in Sources */,
+				83FB7A681DEDF535004C7CE2 /* ThursdayCell.swift in Sources */,
 				83CE4CDD1DEB12AB0016DAA7 /* ClassCell.swift in Sources */,
 				83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */,
+				83FB7A5C1DECB1DE004C7CE2 /* Class.swift in Sources */,
+				83FB7A601DECBB9C004C7CE2 /* Schedule.swift in Sources */,
 				83CE4CD31DEB03620016DAA7 /* Extensions.swift in Sources */,
 				83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */,
 				83CE4CD51DEB07E10016DAA7 /* MenuBar.swift in Sources */,
+				83FB7A5E1DECB45B004C7CE2 /* API Service.swift in Sources */,
+				83FB7A6C1DEDF558004C7CE2 /* SaturdayCell.swift in Sources */,
+				83FB7A6A1DEDF541004C7CE2 /* FridayCell.swift in Sources */,
 				83CE4CD71DEB0B970016DAA7 /* BaseCell.swift in Sources */,
 				83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */,
+				83FB7A641DEDF50F004C7CE2 /* TuesdayCell.swift in Sources */,
+				83FB7A661DEDF52C004C7CE2 /* WednesdayCell.swift in Sources */,
+				83FB7A6E1DEEEAA7004C7CE2 /* Enums.swift in Sources */,
+				83FB7A621DEDF496004C7CE2 /* MondayCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +325,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -255,6 +375,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -281,7 +402,9 @@
 		};
 		83CE4CD01DEB01DB0016DAA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F85329C4FEC3943C167F54E /* Pods-JIIT Connect.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
@@ -294,7 +417,9 @@
 		};
 		83CE4CD11DEB01DB0016DAA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7623778DDF16F3EC6080B248 /* Pods-JIIT Connect.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
@@ -324,6 +449,7 @@
 				83CE4CD11DEB01DB0016DAA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
