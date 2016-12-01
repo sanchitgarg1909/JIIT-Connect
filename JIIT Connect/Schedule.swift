@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class Schedule: NSObject {
+class Schedule {
     var monday: [Class]?
     var tuesday: [Class]?
     var wednesday: [Class]?

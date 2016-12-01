@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Class: NSObject{
+class Class {
     var course_id: String
     var time: String
     var venue: String

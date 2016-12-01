@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		834669E81DF0C210008D69CE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 834669E71DF0C210008D69CE /* MBProgressHUD.m */; };
 		83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */; };
 		83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */; };
 		83CE4CC61DEB01DB0016DAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */; };
@@ -36,6 +37,9 @@
 		1F85329C4FEC3943C167F54E /* Pods-JIIT Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		6228C782F631D072C9002316 /* Pods_JIIT_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JIIT_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7623778DDF16F3EC6080B248 /* Pods-JIIT Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.release.xcconfig"; sourceTree = "<group>"; };
+		834669E51DF0C20F008D69CE /* JIIT Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JIIT Connect-Bridging-Header.h"; sourceTree = "<group>"; };
+		834669E61DF0C210008D69CE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		834669E71DF0C210008D69CE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		83CE4CBD1DEB01DA0016DAA7 /* JIIT Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JIIT Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
@@ -95,31 +99,66 @@
 		83CE4CBF1DEB01DA0016DAA7 /* JIIT Connect */ = {
 			isa = PBXGroup;
 			children = (
-				83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */,
-				83CE4CD21DEB03620016DAA7 /* Extensions.swift */,
+				834669E61DF0C210008D69CE /* MBProgressHUD.h */,
+				834669E71DF0C210008D69CE /* MBProgressHUD.m */,
+				83FB7A721DEF6192004C7CE2 /* Model */,
+				83FB7A731DEF61A5004C7CE2 /* View */,
+				83FB7A711DEF616B004C7CE2 /* Controller */,
+				83FB7A741DEF6205004C7CE2 /* Helpers */,
 				83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */,
-				83CE4CD41DEB07E10016DAA7 /* MenuBar.swift */,
-				83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */,
-				83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */,
-				83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */,
-				83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */,
 				83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */,
 				83CE4CC71DEB01DB0016DAA7 /* Assets.xcassets */,
 				83CE4CC91DEB01DB0016DAA7 /* LaunchScreen.storyboard */,
+				83CE4CCC1DEB01DB0016DAA7 /* Info.plist */,
+				83FB7A5D1DECB45B004C7CE2 /* API Service.swift */,
+				834669E51DF0C20F008D69CE /* JIIT Connect-Bridging-Header.h */,
+			);
+			path = "JIIT Connect";
+			sourceTree = "<group>";
+		};
+		83FB7A711DEF616B004C7CE2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				83FB7A6F1DEF543D004C7CE2 /* LoginController.swift */,
+				83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		83FB7A721DEF6192004C7CE2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */,
+				83FB7A5B1DECB1DE004C7CE2 /* Class.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		83FB7A731DEF61A5004C7CE2 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				83FB7A611DEDF496004C7CE2 /* MondayCell.swift */,
 				83FB7A631DEDF50F004C7CE2 /* TuesdayCell.swift */,
 				83FB7A651DEDF52C004C7CE2 /* WednesdayCell.swift */,
 				83FB7A671DEDF535004C7CE2 /* ThursdayCell.swift */,
 				83FB7A691DEDF541004C7CE2 /* FridayCell.swift */,
 				83FB7A6B1DEDF558004C7CE2 /* SaturdayCell.swift */,
-				83FB7A5B1DECB1DE004C7CE2 /* Class.swift */,
-				83CE4CCC1DEB01DB0016DAA7 /* Info.plist */,
-				83FB7A5D1DECB45B004C7CE2 /* API Service.swift */,
-				83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */,
-				83FB7A6D1DEEEAA7004C7CE2 /* Enums.swift */,
-				83FB7A6F1DEF543D004C7CE2 /* LoginController.swift */,
+				83CE4CDA1DEB12440016DAA7 /* BaseDayCell.swift */,
+				83CE4CD41DEB07E10016DAA7 /* MenuBar.swift */,
+				83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */,
+				83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */,
+				83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */,
 			);
-			path = "JIIT Connect";
+			name = View;
+			sourceTree = "<group>";
+		};
+		83FB7A741DEF6205004C7CE2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				83FB7A6D1DEEEAA7004C7CE2 /* Enums.swift */,
+				83CE4CD21DEB03620016DAA7 /* Extensions.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		F55D3DE1E734442346426CA7 /* Frameworks */ = {
@@ -175,6 +214,7 @@
 					83CE4CBC1DEB01DA0016DAA7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 8366B7L8MG;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -270,6 +310,7 @@
 				83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */,
 				83FB7A5C1DECB1DE004C7CE2 /* Class.swift in Sources */,
 				83FB7A601DECBB9C004C7CE2 /* Schedule.swift in Sources */,
+				834669E81DF0C210008D69CE /* MBProgressHUD.m in Sources */,
 				83CE4CD31DEB03620016DAA7 /* Extensions.swift in Sources */,
 				83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */,
 				83CE4CD51DEB07E10016DAA7 /* MenuBar.swift in Sources */,
@@ -406,11 +447,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchitgarg.jiitconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JIIT Connect/JIIT Connect-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -421,11 +465,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 8366B7L8MG;
 				INFOPLIST_FILE = "JIIT Connect/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanchitgarg.jiitconnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "JIIT Connect/JIIT Connect-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

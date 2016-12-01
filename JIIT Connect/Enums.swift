@@ -14,3 +14,7 @@ enum Days: String {
     case Friday = "friday"
     case Saturday = "saturday"
 }
+
+enum BackendError: Error {
+    case objectSerialization(reason: String)
+}

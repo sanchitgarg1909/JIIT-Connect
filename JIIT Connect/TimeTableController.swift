@@ -23,7 +23,7 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+//        perform(#selector(handleLogout), with: nil, afterDelay: 0)
 
         //        navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
@@ -34,7 +34,27 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
         
-        fetchSchedule()
+        let preferences = UserDefaults.standard
+        if let timetable = preferences.string(forKey: "timetable") {
+            ApiService.sharedInstance.parseResponse(jsonString: timetable, completionHandler: { result in
+                guard result.error == nil else {
+                    // got an error in getting the data, need to handle it
+                    print("network error")
+                    print(result.error!)
+                    return
+                }
+                guard let schedule = result.value else {
+                    print("error in json response")
+                    return
+                }
+                // success!
+                self.schedule = schedule
+                self.collectionView?.reloadData()
+                //                loadingDialog.hide(animated: true)
+            })
+        } else {
+            fetchSchedule()
+        }
         setupCollectionView()
         setUpMenuBar()
 //        setUpNavBarButtons()
@@ -42,10 +62,15 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     }
     
     func handleLogout() {
-        present(, animated: true, completion: nil)
+        present(LoginController(), animated: true, completion: nil)
     }
     
     func fetchSchedule() {
+        let loadingDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingDialog.animationType = .zoomOut
+        loadingDialog.label.text = "Loading"
+
+        
         ApiService.sharedInstance.fetchTimeTable(urlString: "timetable.json", completionHandler: { result in
             guard result.error == nil else {
                 // got an error in getting the data, need to handle it
@@ -60,6 +85,7 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
             // success!
             self.schedule = schedule
             self.collectionView?.reloadData()
+            loadingDialog.hide(animated: true)
         })
     }
     

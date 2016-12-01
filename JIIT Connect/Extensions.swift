@@ -27,3 +27,15 @@ extension UIColor {
     }
 }
 
+extension String {
+    func convertToJSON() -> [String: AnyObject]? {
+        if let data = data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: AnyObject]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+}
