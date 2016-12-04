@@ -10,6 +10,7 @@ import UIKit
 
 class TimeTableController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
+    let preferences = UserDefaults.standard
     let numberOfDays = 6
     let mondayCellId = Days.Monday.rawValue
     let tuesdayCellId = Days.Tuesday.rawValue
@@ -19,11 +20,12 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     let saturdayCellId = Days.Saturday.rawValue
     let titles = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     var schedule: Schedule? = nil
+    var count: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        setup()
 
         //        navigationItem.title = "Home"
         navigationController?.navigationBar.isTranslucent = false
@@ -34,7 +36,28 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
         
-        let preferences = UserDefaults.standard
+        setupCollectionView()
+        setUpMenuBar()
+        setUpNavBarButtons()
+        
+    }
+    
+    func setup() {
+        if (preferences.object(forKey: "login status") != nil) {
+            let loginStatus = preferences.bool(forKey: "login status")
+            if(loginStatus) {
+                setupTimetable()
+            }
+            else {
+                perform(#selector(handleLogout), with: nil, afterDelay: 0)
+            }
+        }
+        else {
+            perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        }
+    }
+    
+    func setupTimetable() {
         if let timetable = preferences.string(forKey: "timetable") {
             ApiService.sharedInstance.parseResponse(jsonString: timetable, completionHandler: { result in
                 guard result.error == nil else {
@@ -55,23 +78,24 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         } else {
             fetchSchedule()
         }
-        setupCollectionView()
-        setUpMenuBar()
-//        setUpNavBarButtons()
-        
     }
     
-    func handleLogout() {
-        present(LoginController(), animated: true, completion: nil)
+    func openLogin() {
+        let controller = LoginController()
+        controller.dismissController {
+            self.setupTimetable()
+        }
+        present(controller, animated: true, completion: nil)
     }
     
     func fetchSchedule() {
+        count += 1
         let loadingDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingDialog.animationType = .zoomOut
         loadingDialog.label.text = "Loading"
 
         
-        ApiService.sharedInstance.fetchTimeTable(urlString: "timetable.json", completionHandler: { result in
+        ApiService.sharedInstance.fetchTimeTable(urlString: "year\(count).txt", completionHandler: { result in
             guard result.error == nil else {
                 // got an error in getting the data, need to handle it
                 print("network error")
@@ -123,22 +147,22 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
         view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
     }
     
-//    func setUpNavBarButtons(){
-//        
-//        let searchButton = UIBarButtonItem(image: UIImage(named: "ic_more")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleSearch))
-//        
-//        let moreButton = UIBarButtonItem(image: UIImage(named: "ic_more")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleMore))
-//        
-//        navigationItem.rightBarButtonItems = [moreButton,searchButton]
-//    }
-//    
-//    func handleSearch(){
-//        print(456)
-//    }
-//    
-//    func handleMore(){
-//        print(123)
-//    }
+    func setUpNavBarButtons(){
+        
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        logoutButton.tintColor = UIColor.white
+        
+        navigationItem.rightBarButtonItems = [logoutButton]
+    }
+    
+    func handleLogout(){
+        let preferences = UserDefaults.standard
+        preferences.removeObject(forKey: "login status")
+        preferences.removeObject(forKey: "timetable")
+        self.schedule = nil
+        self.collectionView?.reloadData()
+        openLogin()
+    }
     
     func setTitleForIndex(index: Int){
         if let titleLabel = navigationItem.titleView as? UILabel{
@@ -204,7 +228,6 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height - 50)
     }
-
 
 }
 

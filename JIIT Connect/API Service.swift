@@ -12,14 +12,14 @@ class ApiService {
     
     static let sharedInstance = ApiService()
     
-    let baseUrl = "https://tart-scarf-9196.nanoscaleapi.io"
+    let baseUrl = "https://jiit-connect.firebaseapp.com/time_table"
     
     func fetchTimeTable(urlString: String, completionHandler: @escaping (Result<Schedule>) -> Void) {
         let url = "\(baseUrl)/\(urlString)"
-        print(url)
+//        print(url)
         Alamofire.request(url)
             .responseString { response in
-                print(response.result.value ?? "error")
+//                print(response.result.value ?? "error")
                 
                 // check if responseJSON already has an error
                 // e.g., no network connection
@@ -30,48 +30,20 @@ class ApiService {
                     return
                 }
                 
-                guard let jsonString = response.result.value else {
+                guard var jsonString = response.result.value else {
                     print("nil response")
                     completionHandler(.failure(BackendError.objectSerialization(reason: "Response is nil")))
                     //                    completionHandler(false)
                     return
                 }
-                let preferences = UserDefaults.standard
-                preferences.set(jsonString, forKey: "timetable")
-                //  Save to disk
-                preferences.synchronize()
+                
+                let startIndex = (jsonString.range(of: "#A6")?.upperBound)!
+                let endIndex = (jsonString.range(of: "@A6")?.lowerBound)!
+                jsonString = jsonString[startIndex..<endIndex]
                 
                 self.parseResponse(jsonString: jsonString, completionHandler: completionHandler)
                 
             }
-//            .responseJSON { response in
-//                
-//                // check if responseJSON already has an error
-//                // e.g., no network connection
-//                guard response.result.error == nil else {
-//                    print(response.result.error!)
-//                    completionHandler(.failure(response.result.error!))
-////                    completionHandler(false)
-//                    return
-//                }
-//                
-//                // make sure we got JSON and it's a dictionary
-//                guard let json = response.result.value as? [String: AnyObject] else {
-//                    print("didn't get todo object as JSON from API")
-//                    completionHandler(.failure(BackendError.objectSerialization(reason: "Did not get JSON dictionary in response")))
-////                    completionHandler(false)
-//                    return
-//                }
-//                
-//                // create Todo from JSON, make sure it's not nil
-//                guard let schedule = Schedule(json: json) else {
-//                    completionHandler(.failure(BackendError.objectSerialization(reason: "Could not create Todo object from JSON")))
-////                    completionHandler(false)
-//                    return
-//                }
-//                completionHandler(.success(schedule))
-////                completionHandler(true)
-//            }
     }
     
     func parseResponse(jsonString: String, completionHandler: @escaping (Result<Schedule>) -> Void){
@@ -88,6 +60,11 @@ class ApiService {
             completionHandler(.failure(BackendError.objectSerialization(reason: "Could not create Schedule object from JSON")))
             return
         }
+
+        let preferences = UserDefaults.standard
+        preferences.set(jsonString, forKey: "timetable")
+        preferences.synchronize()
+        
         completionHandler(.success(schedule))
     }
 }

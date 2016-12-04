@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8336CCBD1DF2B162000A1404 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8336CCBC1DF2B162000A1404 /* SeparatorView.swift */; };
 		834669E81DF0C210008D69CE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 834669E71DF0C210008D69CE /* MBProgressHUD.m */; };
 		83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */; };
 		83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */; };
@@ -37,6 +38,7 @@
 		1F85329C4FEC3943C167F54E /* Pods-JIIT Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.debug.xcconfig"; sourceTree = "<group>"; };
 		6228C782F631D072C9002316 /* Pods_JIIT_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JIIT_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7623778DDF16F3EC6080B248 /* Pods-JIIT Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JIIT Connect.release.xcconfig"; path = "Pods/Target Support Files/Pods-JIIT Connect/Pods-JIIT Connect.release.xcconfig"; sourceTree = "<group>"; };
+		8336CCBC1DF2B162000A1404 /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		834669E51DF0C20F008D69CE /* JIIT Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JIIT Connect-Bridging-Header.h"; sourceTree = "<group>"; };
 		834669E61DF0C210008D69CE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		834669E71DF0C210008D69CE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				83CE4CDC1DEB12AB0016DAA7 /* ClassCell.swift */,
 				83CE4CD81DEB0BA70016DAA7 /* MenuCell.swift */,
 				83CE4CD61DEB0B970016DAA7 /* BaseCell.swift */,
+				8336CCBC1DF2B162000A1404 /* SeparatorView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				83FB7A6A1DEDF541004C7CE2 /* FridayCell.swift in Sources */,
 				83CE4CD71DEB0B970016DAA7 /* BaseCell.swift in Sources */,
 				83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */,
+				8336CCBD1DF2B162000A1404 /* SeparatorView.swift in Sources */,
 				83FB7A641DEDF50F004C7CE2 /* TuesdayCell.swift in Sources */,
 				83FB7A661DEDF52C004C7CE2 /* WednesdayCell.swift in Sources */,
 				83FB7A6E1DEEEAA7004C7CE2 /* Enums.swift in Sources */,
