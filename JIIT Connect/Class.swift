@@ -1,10 +1,3 @@
-//
-//  Class.swift
-//  JIIT Connect
-//
-//  Created by Sanchit Garg on 29/11/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
-//
 
 import Foundation
 

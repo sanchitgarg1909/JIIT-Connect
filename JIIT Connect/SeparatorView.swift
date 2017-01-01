@@ -1,10 +1,3 @@
-//
-//  SeperatorView.swift
-//  JIIT Connect
-//
-//  Created by Sanchit Garg on 03/12/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
-//
 
 import UIKit
 

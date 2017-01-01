@@ -1,10 +1,3 @@
-//
-//  LoginController.swift
-//  JIIT Connect
-//
-//  Created by Sanchit Garg on 01/12/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
-//
 
 import UIKit
 
@@ -23,10 +16,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }()
     
     let collegeChoice: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["JIIT 62","JIIT 128"])
+        let sc = UISegmentedControl(items: ["JIIT","J128"])
         sc.translatesAutoresizingMaskIntoConstraints = false
         sc.tintColor = UIColor.white
-        sc.selectedSegmentIndex = 1
+        sc.selectedSegmentIndex = 0
         return sc
     }()
     
@@ -117,7 +110,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
     }
     
     func handleLogin() {
-        guard !((enrollNoField.text?.isEmpty)! || (passwordField.text?.isEmpty)! || (dobField.text?.isEmpty)! || (yearField.text?.isEmpty)! || (batchField.text?.isEmpty)!) else {
+        
+        view.endEditing(true)
+    
+        guard let enrollNo = enrollNoField.text,
+        !enrollNo.isEmpty,
+        let password = passwordField.text,
+        !password.isEmpty,
+        let dob = dobField.text,
+        !dob.isEmpty,
+        let year = yearField.text,
+        !year.isEmpty,
+        let batch = batchField.text,
+        !batch.isEmpty,
+        let college = collegeChoice.titleForSegment(at: collegeChoice.selectedSegmentIndex) else {
             let alertDialog = UIAlertController(title: "Information missing", message: "Please fill all the details", preferredStyle: UIAlertControllerStyle.alert)
             alertDialog.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { UIAlertAction in
                 alertDialog.dismiss(animated: true, completion: nil)
@@ -125,12 +131,55 @@ class LoginController: UIViewController, UITextFieldDelegate {
             present(alertDialog, animated: true, completion: nil)
             return
         }
+        guard let user = User(enrollNo: enrollNo, password: password ,dob: dob, year: year, batch: batch, college: college) else {
+            print("Unable to create user")
+            return
+        }
         
-        let preferences = UserDefaults.standard
-        preferences.set(true, forKey: "login status")
-        preferences.synchronize()
-        dismiss(animated: true, completion: {
-            self.completion()
+        let loadingDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
+        loadingDialog.animationType = .zoomOut
+        loadingDialog.label.text = "Logging in"
+        
+        ApiService.sharedInstance.loginOnWebkiosk(user: user, code: 0, completionHandler: { result in
+            loadingDialog.hide(animated: true)
+            guard result.error == nil else {
+                // got an error in getting the data, need to handle it
+                let error = result.error as! BackendError
+                var errorMessage = ""
+                switch error {
+                case let .objectSerialization(reason):
+                    errorMessage = reason
+                    break
+                }
+                let alertDialog = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+                alertDialog.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { UIAlertAction in
+                    alertDialog.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alertDialog, animated: true, completion: nil)
+                return
+            }
+            guard let success = result.value else {
+                print("error in value")
+                return
+            }
+            if(success) {
+                let preferences = UserDefaults.standard
+                preferences.set(true, forKey: "login status")
+                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: user)
+                preferences.set(encodedData, forKey: "user")
+                preferences.synchronize()
+                self.dismiss(animated: true, completion: {
+                    self.completion()
+                })
+            }
+            else {
+                print("server error")
+                let alertDialog = UIAlertController(title: "Error", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
+                alertDialog.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { UIAlertAction in
+                    alertDialog.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alertDialog, animated: true, completion: nil)
+            }
         })
     }
     

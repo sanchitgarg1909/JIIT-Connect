@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  JIIT Connect
-//
-//  Created by Sanchit Garg on 27/11/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
-//
 
 import UIKit
 

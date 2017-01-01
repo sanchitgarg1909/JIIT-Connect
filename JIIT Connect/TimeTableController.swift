@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  JIIT Connect
-//
-//  Created by Sanchit Garg on 27/11/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
-//
 
 import UIKit
 
@@ -20,7 +13,7 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     let saturdayCellId = Days.Saturday.rawValue
     let titles = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     var schedule: Schedule? = nil
-    var count: Int = 0
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +36,11 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     }
     
     func setup() {
-        if (preferences.object(forKey: "login status") != nil) {
+        if ((preferences.object(forKey: "login status") != nil) && preferences.object(forKey: "user") != nil) {
             let loginStatus = preferences.bool(forKey: "login status")
             if(loginStatus) {
+                let decoded  = preferences.object(forKey: "user") as! Data
+                user = NSKeyedUnarchiver.unarchiveObject(with: decoded) as? User
                 setupTimetable()
             }
             else {
@@ -62,8 +57,18 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
             ApiService.sharedInstance.parseResponse(jsonString: timetable, completionHandler: { result in
                 guard result.error == nil else {
                     // got an error in getting the data, need to handle it
-                    print("network error")
-                    print(result.error!)
+                    let error = result.error as! BackendError
+                    var errorMessage = ""
+                    switch error {
+                    case let .objectSerialization(reason):
+                        errorMessage = reason
+                        break
+                    }
+                    let alertDialog = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+                    alertDialog.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { UIAlertAction in
+                        alertDialog.dismiss(animated: true, completion: nil)
+                    }))
+                    self.present(alertDialog, animated: true, completion: nil)
                     return
                 }
                 guard let schedule = result.value else {
@@ -73,9 +78,9 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
                 // success!
                 self.schedule = schedule
                 self.collectionView?.reloadData()
-                //                loadingDialog.hide(animated: true)
             })
-        } else {
+        }
+        else {
             fetchSchedule()
         }
     }
@@ -83,23 +88,33 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     func openLogin() {
         let controller = LoginController()
         controller.dismissController {
-            self.setupTimetable()
+            self.setup()
         }
         present(controller, animated: true, completion: nil)
     }
     
     func fetchSchedule() {
-        count += 1
         let loadingDialog = MBProgressHUD.showAdded(to: self.view, animated: true)
         loadingDialog.animationType = .zoomOut
         loadingDialog.label.text = "Loading"
-
-        
-        ApiService.sharedInstance.fetchTimeTable(urlString: "year\(count).txt", completionHandler: { result in
+        let year = (user?.getYear())!
+        let batch = (user?.getBatch())!
+        ApiService.sharedInstance.fetchTimeTable(year: "year\(year).txt", batch: batch , completionHandler: { result in
+            loadingDialog.hide(animated: true)
             guard result.error == nil else {
                 // got an error in getting the data, need to handle it
-                print("network error")
-                print(result.error!)
+                let error = result.error as! BackendError
+                var errorMessage = ""
+                switch error {
+                case let .objectSerialization(reason):
+                    errorMessage = reason
+                    break
+                }
+                let alertDialog = UIAlertController(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+                alertDialog.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.cancel, handler: { UIAlertAction in
+                    alertDialog.dismiss(animated: true, completion: nil)
+                }))
+                self.present(alertDialog, animated: true, completion: nil)
                 return
             }
             guard let schedule = result.value else {
@@ -109,7 +124,6 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
             // success!
             self.schedule = schedule
             self.collectionView?.reloadData()
-            loadingDialog.hide(animated: true)
         })
     }
     
@@ -158,6 +172,7 @@ class TimeTableController: UICollectionViewController,UICollectionViewDelegateFl
     func handleLogout(){
         let preferences = UserDefaults.standard
         preferences.removeObject(forKey: "login status")
+        preferences.removeObject(forKey: "user")
         preferences.removeObject(forKey: "timetable")
         self.schedule = nil
         self.collectionView?.reloadData()

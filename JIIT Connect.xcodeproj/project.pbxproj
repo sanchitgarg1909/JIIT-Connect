@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8336CCBD1DF2B162000A1404 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8336CCBC1DF2B162000A1404 /* SeparatorView.swift */; };
 		834669E81DF0C210008D69CE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 834669E71DF0C210008D69CE /* MBProgressHUD.m */; };
+		83C40D041E12DAB2006EE8C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C40D031E12DAB2006EE8C6 /* User.swift */; };
 		83CE4CC11DEB01DB0016DAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */; };
 		83CE4CC31DEB01DB0016DAA7 /* TimeTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */; };
 		83CE4CC61DEB01DB0016DAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83CE4CC41DEB01DB0016DAA7 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		834669E51DF0C20F008D69CE /* JIIT Connect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JIIT Connect-Bridging-Header.h"; sourceTree = "<group>"; };
 		834669E61DF0C210008D69CE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		834669E71DF0C210008D69CE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		83C40D031E12DAB2006EE8C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		83CE4CBD1DEB01DA0016DAA7 /* JIIT Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JIIT Connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CE4CC01DEB01DB0016DAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83CE4CC21DEB01DB0016DAA7 /* TimeTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				83FB7A5F1DECBB9C004C7CE2 /* Schedule.swift */,
 				83FB7A5B1DECB1DE004C7CE2 /* Class.swift */,
+				83C40D031E12DAB2006EE8C6 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -211,7 +214,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Sanchit Garg";
 				TargetAttributes = {
 					83CE4CBC1DEB01DA0016DAA7 = {
@@ -316,6 +319,7 @@
 				834669E81DF0C210008D69CE /* MBProgressHUD.m in Sources */,
 				83CE4CD31DEB03620016DAA7 /* Extensions.swift in Sources */,
 				83CE4CD91DEB0BA70016DAA7 /* MenuCell.swift in Sources */,
+				83C40D041E12DAB2006EE8C6 /* User.swift in Sources */,
 				83CE4CD51DEB07E10016DAA7 /* MenuBar.swift in Sources */,
 				83FB7A5E1DECB45B004C7CE2 /* API Service.swift in Sources */,
 				83FB7A6C1DEDF558004C7CE2 /* SaturdayCell.swift in Sources */,

@@ -1,9 +1,5 @@
 //
 //  FeedCell.swift
-//  Youtube
-//
-//  Created by Sanchit Garg on 25/11/16.
-//  Copyright © 2016 Sanchit Garg. All rights reserved.
 
 import UIKit
 
